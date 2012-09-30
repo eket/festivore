@@ -30,6 +30,7 @@
     MapView.prototype.el = $('#map');
 
     MapView.prototype.initialize = function() {
+      $('#mapel').height($(window).height() - 40);
       this.map = L.map('mapel').setView([51.505, -0.09], 13);
       tile_layer.addTo(this.map);
       if (navigator.geolocation) {

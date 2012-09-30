@@ -2,23 +2,62 @@
 html(lang="en")
   head
     title Find Your Friends
+
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+
+    link(href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css", rel="stylesheet")
     link(href="/static/css/bootstrap.css", rel="stylesheet")
-    |<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+    link(href="/static/css/bootstrap-responsive.css", rel="stylesheet")
+
+    link(href="/static/css/style.css", rel="stylesheet")
+
 
   body
 
-    ul.nav.nav-pills(style="margin-bottom:2px")
-      li.active: a(href="#map", data-toggle="pill") Map
-      li: a(href="#friends", data-toggle="pill") Friends
-      li: a(href="#places", data-toggle="pill") Places
+    .navbar.navbar-fixed-top: .navbar-inner
+      ul.nav
+        li.active: a(href="#map", data-toggle="pill") Map
+        li: a(href="#friends", data-toggle="pill") Friends
+        li: a(href="#places", data-toggle="pill") Places
 
 
-    .tab-content
-      #map.tab-pane.active
-        #mapel(style="height:600px")
-      #friends.tab-pane friends
-      #places.tab-pane places
+    .ct
+      .tab-content
+        #map.tab-pane.active
+          #mapel
 
+        #friends.tab-pane
+          table.table.table-bordered: tbody
+              tr
+                td.link: a(href="#friends/jon") Jon
+                td.narrow.link: a(href="#map"): i.icon-map-marker &nbsp;&gt;
+              tr
+                td.link: a(href="#friends/armando") Armando
+                td.narrow.link: a(href="#map"): i.icon-map-marker &nbsp;&gt;
+
+          .navbar.navbar-fixed-bottom: .navbar-inner
+            span.pull-right &nbsp;&nbsp;
+            a(href="#friends/add").btn.btn-info.pull-right Add Friend
+
+
+        #places.tab-pane
+          table.table.table-bordered: tbody
+              tr
+                td.narrow: input(type="checkbox", checked)
+                td.link: a(href="#friends") Friends
+                  span.pull-right: span.badge 2
+              tr
+                td.narrow: input(type="checkbox", checked)
+                td.link: a(href="#places/stages") Stages
+                  span.pull-right: span.badge 32
+              tr
+                td.narrow: input(type="checkbox", checked)
+                td.link: a(href="#places/toilets") Toilets
+                  span.pull-right: span.badge 12
+
+          .navbar.navbar-fixed-bottom: .navbar-inner
+            span.pull-right &nbsp;&nbsp;
+            a(href="#places/add").btn.btn-info.pull-right Add Place
 
 
     script(src="/static/js/lib/socket.io.min.js")
