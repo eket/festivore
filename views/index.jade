@@ -1,0 +1,36 @@
+!!!5
+html(lang="en")
+  head
+    title Find Your Friends
+    link(href="/static/css/bootstrap.css", rel="stylesheet")
+    |<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+
+  body
+
+    ul.nav.nav-pills(style="margin-bottom:2px")
+      li.active: a(href="#map", data-toggle="pill") Map
+      li: a(href="#friends", data-toggle="pill") Friends
+      li: a(href="#places", data-toggle="pill") Places
+
+
+    .tab-content
+      #map.tab-pane.active
+        #mapel(style="height:400px")
+      #friends.tab-pane friends
+      #places.tab-pane places
+
+
+
+    script(src="/static/js/lib/socket.io.min.js")
+    //script(src="/static/js/lib/zepto.min.js")
+    script(src="/static/js/lib/jquery.min.js")
+    script(src="/static/js/lib/bootstrap.js")
+    script(src="/static/js/lib/leaflet.js")
+    script(src="/static/js/lib/lodash.min.js")
+    script(src="/static/js/lib/backbone-min.js")
+
+    script(src="/static/js/script.js")
+    script(src="/static/js/map.js")
+    script(src="/static/js/friends.js")
+    script(src="/static/js/places.js")
+
