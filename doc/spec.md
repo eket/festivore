@@ -19,22 +19,24 @@ client-server communication via socket.io
 ### socket.io events
 
 
-     # auth [WIP]
-    c->s auth(access_token : string)
+    # auth [WIP: no-op]
+    c->s auth(username)
      <-  friend_list : []
     # server gets email address from google
 
-    # updates
+    # updates [WIP: no persistence]
     c->s update(update : ClientUpdate)
     s->c update(update : ServerUpdate)
+    # server stores updates and relays them to online friends
     
-    # friend list
-    c->s add_friend(username : string)
-    c->s remove_friend(username : string)
+    # friend list [WIP: no persistence]
+    c->s add_friend(friend_username)
+    c->s remove_friend(friend_username)
     
-    # ping
-    c->s ping(to_username : string)
-    s->c ping(from_username : string)
+    # ping [done]
+    c->s ping(to_username)
+    s->c ping(from_username)
+    # server forwards ping
 
 
 
@@ -42,15 +44,15 @@ client-server communication via socket.io
 
 
     ClientUpdate = { # c->s
-        lat: 1.23
-    	lon: 2.34
+      lat: 1.23
+      lon: 2.34
     }
     
     ServerUpdate = { # s->c
-    username: "username"
-    	timestamp: 2345
-    	lat: 1.23
-    	lon: 2.34
+      username: "username"
+      timestamp: 2345
+      lat: 1.23
+      lon: 2.34
     }
 
 

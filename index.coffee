@@ -22,13 +22,13 @@ io.sockets.on "connection", (socket) ->
     users[username] = socket
     fn(username)
 
-    socket.on "add_friends", (friends, fn) ->
-      return unless typeof(fn) == 'function'
-      for friend in friends
-        socket.friends.push(friend)
+    socket.on "add_friend", (friend) ->
+      socket.friends.push(friend)
+      console.log "add_friend", friend
 
-      console.log "add friends", friends
-      fn(true)
+    socket.on "remove_friend", (friend) ->
+      socket.friends.push(friend)
+      console.log "remove_friend", friend
 
     socket.on "update", (update) ->
       update.usernme = socket.username
@@ -37,11 +37,13 @@ io.sockets.on "connection", (socket) ->
 
       for friend in socket.friends
         if users[friend]
-          users[friend].emit('update', )
+          users[friend].emit('update', update)
 
-      console.log update
+      console.log 'update', update
+
+    socket.on "ping", (friend) ->
+      if friend in socket.friends and users[friend]
+        users[friend].emit 'ping', socket.username
 
 
-
-
-server.listen 8888
+server.listen process.env.PORT or 9000
