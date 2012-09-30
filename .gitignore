@@ -14,8 +14,8 @@ results
 node_modules
 npm-debug.log
 
-.c9revisions
-
 android_app/local.properties
 android_app/bin/
 android_app/gen/
+
+.c9revisions
