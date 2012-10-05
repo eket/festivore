@@ -1,5 +1,7 @@
 package su.eket.festapp;
 
+import android.view.Window;
+
 import android.webkit.WebSettings;
 
 import android.app.Activity;
@@ -9,8 +11,9 @@ import android.webkit.WebView;
 public class EntryPointActivity extends Activity {
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+	requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-	
+
 	WebView webview = ((WebView) findViewById(R.id.webview));
 	WebSettings websettings = webview.getSettings();
 	websettings.setJavaScriptEnabled(true);
