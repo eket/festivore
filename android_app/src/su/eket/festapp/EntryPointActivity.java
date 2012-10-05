@@ -17,12 +17,10 @@ public class EntryPointActivity extends Activity {
 	WebView webview = ((WebView) findViewById(R.id.webview));
 	WebSettings websettings = webview.getSettings();
 	websettings.setJavaScriptEnabled(true);
-	websettings.setGeolocationEnabled(false);
-	websettings.setUseWideViewPort(true);
-	websettings.setSupportZoom(false);
-	websettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
-
+	websettings.setDefaultZoom(WebSettings.ZoomDensity.FAR);
+	webview.setInitialScale(33);
 	webview.loadUrl(getString(R.string.webapp_url));
+	webview.zoomOut();
 	return;
     }
 }
