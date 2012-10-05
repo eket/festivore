@@ -4,7 +4,7 @@ icon = L.icon
   iconAnchor: [13, 41]
 
 tile_layer = L.tileLayer 'http://otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-  attribution: 'Data, imagery and map information provided by MapQuest, Open Street Map <http://www.openstreetmap.org/> and contributors, CC-BY-SA <http://creativecommons.org/licenses/by-sa/2.0/> .; Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">',
+  attribution: '',
   maxZoom: 18
 
 
@@ -12,7 +12,7 @@ class MapView extends Backbone.View
   el: $('#map')
 
   initialize: =>
-    $('#mapel').height $(window).height() - 40
+    $('#mapel').height $(window).height()
     @map = L.map('mapel').setView([51.505, -0.09], 13);
     tile_layer.addTo(@map);
 
