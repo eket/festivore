@@ -18,3 +18,46 @@ body{padding:0;}
 .leaflet-top{
     top:100px;
 }
+
+
+
+
+
+
+
+/* bootstrap responsive fixes 
+
+@media (max-width: 767px) {
+  body {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom,
+  .navbar-static-top {
+    margin-right: 0;
+    margin-left: 0;
+  } 
+}
+  
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    position: fixed;
+  }
+  .navbar-fixed-top {
+    margin-bottom: 0px;
+  }
+  .navbar-fixed-bottom {
+    margin-top: 0px;
+  }
+  .navbar-fixed-top .navbar-inner,
+  .navbar-fixed-bottom .navbar-inner {
+    padding: 0px;
+  
+  
+*/
+}
