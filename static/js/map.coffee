@@ -12,7 +12,7 @@ class MapView extends Backbone.View
   el: $('#map')
 
   initialize: =>
-    $('#mapel').height $(window).height()
+    $('#mapel').height $(window).height()-40
     @map = L.map('mapel').setView([51.505, -0.09], 13);
     tile_layer.addTo(@map);
 

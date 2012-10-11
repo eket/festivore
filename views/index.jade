@@ -17,9 +17,15 @@ html(lang="en")
 
     .navbar.navbar-fixed-top: .navbar-inner
       ul.nav
-        li.active: a(href="#map", data-toggle="pill") Map
-        li: a(href="#friends", data-toggle="pill") Friends
-        li: a(href="#places", data-toggle="pill") Places
+        li.active: a(href="#map", data-toggle="tab") Map
+        li: a(href="#friends", data-toggle="tab") Friends
+        li: a(href="#add_friend", data-toggle="tab") Add Friend
+        li: a(href="#bender", data-toggle="tab") Bender
+        li: a(href="#places", data-toggle="tab") Places
+        li: a(href="#add_place", data-toggle="tab") Add Place
+        li: a(href="#toilets", data-toggle="tab") Toilets
+        li: a(href="#chill_toilet", data-toggle="tab") Chill Toilet
+        
 
 
     .ct
@@ -28,20 +34,50 @@ html(lang="en")
           #mapel
 
         #friends.tab-pane
+          .input-append
+            input.span2(type="text", size="16", placeholder="Search")
+            button.btn(type="button"): i.icon-search
+              
           table.table.table-bordered: tbody
               tr
                 td.link: a(href="#friends/jon") Jon
                 td.narrow.link: a(href="#map"): i.icon-map-marker &nbsp;&gt;
               tr
-                td.link: a(href="#friends/armando") Armando
+                td.link: a(href="#friends/armando") Bender
                 td.narrow.link: a(href="#map"): i.icon-map-marker &nbsp;&gt;
 
           .navbar.navbar-fixed-bottom: .navbar-inner
             span.pull-right &nbsp;&nbsp;
             a(href="#friends/add").btn.btn-info.pull-right Add Friend
 
+        #add_friend.tab-pane
+          .input-append
+            input#appendedInputButton.span2(type="text", size="16", placeholder="Email")
+            button.btn(type="button") +
+
+          div -or-  
+          
+          img.img-rounded(src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Wikipedia_mobile_en.svg/220px-Wikipedia_mobile_en.svg.png",width="200",height="200")
+
+        #bender.tab-pane
+          img.img-rounded(src="http://fc04.deviantart.net/fs71/f/2012/022/4/2/profile_picture_by_sadistica_stock-d4nbdwz.jpg",width="100",height="100")
+          
+          div Bender &nbsp;&nbsp; 17min
+          div Main Stage &nbsp;&nbsp; 100m
+
+          a(href="#stop_sharing") X &nbsp; Stop Sharing
+
+          .navbar.navbar-fixed-bottom: .navbar-inner
+            span.pull-right &nbsp;&nbsp;
+            a(href="#places/add").btn.btn-info.pull-right: i.icon-map-marker
+
+
 
         #places.tab-pane
+          .input-append
+            input.span2(type="text", size="16", placeholder="Search")
+            button.btn(type="button"): i.icon-search
+
           table.table.table-bordered: tbody
               tr
                 td.narrow: input(type="checkbox", checked)
@@ -59,6 +95,45 @@ html(lang="en")
           .navbar.navbar-fixed-bottom: .navbar-inner
             span.pull-right &nbsp;&nbsp;
             a(href="#places/add").btn.btn-info.pull-right Add Place
+
+        #add_place.tab-pane
+          span.label.label-success Map
+
+          .input-append
+            input#appendedInputButton.span2(type="text", size="16", placeholder="Name")
+
+          select
+            option(value="stages") Stages
+            option(value="toilets") Toilets 
+
+          .navbar.navbar-fixed-bottom: .navbar-inner
+            span.pull-right &nbsp;&nbsp;
+            a(href="#places/add").btn.btn-info.pull-right Done            
+
+        #toilets.tab-pane
+          .input-append
+            input.span2(type="text", size="16", placeholder="Search")
+            button.btn(type="button"): i.icon-search
+
+          table.table.table-bordered: tbody
+              tr
+                td.link: a(href="#toilets/main_toilet") Main Toilet
+                td.narrow.link: a(href="#map"): i.icon-map-marker &nbsp;&gt;
+              tr
+                td.link: a(href="#toilets/chill_toilet") Chill Toilet
+                td.narrow.link: a(href="#map"): i.icon-map-marker &nbsp;&gt;
+
+          .navbar.navbar-fixed-bottom: .navbar-inner
+            span.pull-right &nbsp;&nbsp;
+            a(href="#places/stages/add").btn.btn-info.pull-right Add Toilet
+
+        #chill_toilet.tab-pane
+          span.label.label-success Map
+
+          div Chill Toilet &nbsp;&nbsp; 100m
+          div Toilets
+          div 3 friends
+          div 200 ppl
 
 
     script(src="/static/js/lib/socket.io.min.js")
